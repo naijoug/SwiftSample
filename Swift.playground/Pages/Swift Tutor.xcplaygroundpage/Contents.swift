@@ -107,6 +107,7 @@ let interestingNumbers = [
 ]
 var largest = 0
 for (kind, numbers) in interestingNumbers {
+    print(kind)
     for number in numbers {
         if number > largest {
             largest = number
@@ -366,6 +367,7 @@ let aceRawValue = ace.rawValue // 使用 rawValue 属性访问枚举成员的原
 // 使用 init?(rawValue:) 初始化器从一个原始值来创建枚举的实例
 if let convertedRank = Rank(rawValue: 3) {
     let threeDescription = convertedRank.simpleDescription()
+    print(threeDescription)
 }
 
 enum Suit {

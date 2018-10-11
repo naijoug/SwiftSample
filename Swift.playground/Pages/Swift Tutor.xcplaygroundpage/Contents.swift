@@ -1,11 +1,14 @@
-// Swift Tutor : Swift 概览
+//: [Reference](@previous)
 
-// MARK:  Hello world!
+//: ## Swift Tutor (Swift 概览)
+
+//:  Hello world!
 
 // 全局范围的代码被用来作为程序的入口，不再需要 main 函数
 print("Hello, world!")  // 每句代码后面不需要分号";"
 
-// MARK: Simple Values (简单值)
+
+//: Simple Values (简单值)
 
 // 变量 & 常量
 var myVariable = 42     // var 声明变量
@@ -57,7 +60,8 @@ let emptyDictionary = [String: Float]()
 shoppingList = []   // 空数组
 occupations = [:]   // 空字典
 
-// MARK: Control Flow (控制流)
+
+//: Control Flow (控制流)
 
 // if 逻辑判断
 let individualScores = [75, 43, 103, 87, 12]
@@ -137,7 +141,8 @@ for i in 0..<4 {
 }
 print(total)
 
-// MARK: Functions and Closures (函数和闭包)
+
+//: Functions and Closures (函数和闭包)
 
 // func : 声明一个函数
 // -> : 分割函数参数和返回值
@@ -234,7 +239,8 @@ print(mapperNumbers)
 let sortedNumbers = numbers.sorted{ $0 > $1 }
 print(sortedNumbers)
 
-// MARK : Objects and Classes (对象和类)
+
+//: Objects and Classes (对象和类)
 
 // class 创建类
 class Shape {
@@ -337,7 +343,8 @@ print(triangleAndSquare.square.sideLength)
 let optionalSquare: Square? = Square(sideLength: 2.5, name: "optional square")
 let sideLength = optionalSquare?.sideLength
 
-// MARK: Enumerations and Structures (枚举和结构体)
+
+//: Enumerations and Structures (枚举和结构体)
 
 // enum 创建枚举
 // 枚举值默认从 0 开始给原始值赋值后面递增，可以通过指定特定值来改变
@@ -418,7 +425,8 @@ struct Card {
 let threeOfSpades = Card(rank: .three, suit: .spades)
 let threeOfSpadesDescription = threeOfSpades.simpleDescription()
 
-// MARK: Protocols and Extensions (协议和扩展)
+
+//: Protocols and Extensions (协议和扩展)
 
 // protocol 声明协议
 protocol ExampleProtocol {
@@ -467,7 +475,8 @@ print(7.simpleDescription)
 let protocolValue: ExampleProtocol = a
 print(protocolValue.simpleDescription)
 
-// MARK: Error Handling (错误处理)
+
+//: Error Handling (错误处理)
 
 // 错误类型需要实现 Error 协议
 enum PrinterError: Error {
@@ -528,7 +537,8 @@ print(fridgeIsOpen)
 fridgeContains("milk")
 print(fridgeIsOpen)
 
-// MARK: Generics (泛型)
+
+//: Generics (泛型)
 
 // <> 用来创建泛型
 func makeArray<Item>(repeating item: Item, numberOfTimes: Int) -> [Item] {

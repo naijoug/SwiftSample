@@ -2,17 +2,13 @@
 
 //: ## Nested Types : 嵌套类型
 
-//: Nested Types in Action
+//: Nested Types in Action (嵌套类型实践)
 
-struct BlackjackCard {
-    
-    // nested Suit enumeration
-    enum Suit: Character {
+struct BlackjackCard { // 扑克牌
+    enum Suit: Character { // 嵌套的花色枚举
         case spades = "♠", hearts = "♡", diamonds = "♢", clubs = "♣"
     }
-    
-    // nested Rank enumeration
-    enum Rank: Int {
+    enum Rank: Int { // 嵌套的牌值枚举
         case two = 2, three, four, five, six, seven, eight, nine, ten
         case jack, queen, king, ace
         struct Values {
@@ -29,8 +25,7 @@ struct BlackjackCard {
             }
         }
     }
-    
-    // BlackjackCard properties and methods
+    // 属性和方法
     let rank: Rank, suit: Suit
     var description: String {
         var output = "suit is \(suit.rawValue),"
@@ -45,7 +40,7 @@ struct BlackjackCard {
 let theAceOfSpades = BlackjackCard(rank: .ace, suit: .spades)
 print("theAceOfSpades: \(theAceOfSpades.description)")
 
-//: Referring to Nested Types
+//: Referring to Nested Types (引用嵌套类型)
 
 let heartsSymbol = BlackjackCard.Suit.hearts.rawValue
 

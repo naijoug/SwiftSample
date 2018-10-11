@@ -1,10 +1,23 @@
 //: [Initialization](@previous)
 
-//: ## Deinitialization : 反初始化
+//: ## Deinitialization : 析构过程
+//  * 析构器 : 在实例销毁之前会被立即调用
+//  * deinit 关键字标记析构器
+//  * 只有类才能有析构器，结构体和枚举没有析构器
+//  * 析构器自动调用，不能自己调用析构器
 
-//: How Deinitialization Works ()
+//: How Deinitialization Works (析构器如何工作)
 
-//: Deinitializers in Action ()
+/**
+    * 类只能有一个析构器
+    * 析构器没有参数，没有括号
+    * 实例在调用析构器之后才释放，所以析构器可以访问实例所有实例和方法
+ deinit {
+    //执行析构器
+ }
+ */
+
+//: Deinitializers in Action (析构器实践)
 
 class Bank {
     static var coinsInBank = 10_000
@@ -17,7 +30,6 @@ class Bank {
         coinsInBank += coins
     }
 }
-
 class Player {
     var coinsInPurse: Int
     init(coins: Int) {
@@ -41,7 +53,6 @@ print("The bank now only has \(Bank.coinsInBank) coins left")
 playerOne = nil
 print("PlayerOne has left the game")
 print("The bank now has \(Bank.coinsInBank) coins")
-
 
 
 //: [Optional Chaining](@next)

@@ -2,24 +2,22 @@
 
 //: ## Type Casting : 类型转换
 
-//: Defining a Class Hierarchy for Type Casting ()
+//: Defining a Class Hierarchy for Type Casting (定义一个层次类作为类型转换)
 
-class MediaItem {
+class MediaItem { // 多媒体类型
     var name: String
     init(name: String) {
         self.name = name
     }
 }
-
-class Movie: MediaItem {
+class Movie: MediaItem { // 电影
     var director: String
     init(name: String, director: String) {
         self.director = director
         super.init(name: name)
     }
 }
-
-class Song: MediaItem {
+class Song: MediaItem { // 歌曲
     var artist: String
     init(name: String, artist: String) {
         self.artist = artist
@@ -35,7 +33,8 @@ let library = [
     Song(name: "Never Gonna Give You Up", artist: "Rick Astley")
 ]
 
-//: Checking Type ()
+//: Checking Type (类型检查)
+//  * is 类型检查运算符，判断实例是否属于某个类
 
 var movieCount = 0
 var songCount = 0
@@ -48,7 +47,12 @@ for item in library {
 }
 print("Media library contains \(movieCount) movies and \(songCount) songs")
 
-//: Downcasting ()
+//: Downcasting (强制转换)
+//  * 类型强制转换运算符 : 将某常量或变量强制转换为子类型
+//      - as? 前置转换为类型可选值
+//      - as! 强制解包，解包失败，触发运行时错误
+//  * 注：
+//      - 转换不变改变和修改实例原来值
 
 for item in library {
     if let movie = item as? Movie {
@@ -58,7 +62,9 @@ for item in library {
     }
 }
 
-//: Type Casting for Any and AnyObject ()
+//: Type Casting for Any and AnyObject (Any 和 AnyObject 的类型转换)
+//  * Any : 表示任何类型的实例，包括函数类型、可选类型...
+//  * AnyObject : 表示任何类类型的实例
 
 var things = [Any]()
 
@@ -72,7 +78,7 @@ things.append(Movie(name: "Ghostbusters", director: "Ivan Reitman"))
 things.append({ (name: String) -> String in "Hello, \(name)" })
 
 for thing in things {
-    switch thing {
+    switch thing { // switch 值绑定匹配
     case 0 as Int:
         print("zero as an Int")
     case 0 as Double:
@@ -97,7 +103,7 @@ for thing in things {
 }
 
 let optionalNumber: Int? = 3
-things.append(optionalNumber)
-things.append(optionalNumber as Any) 
+//things.append(optionalNumber) // 警告 ：将 Int? 转为 Any
+things.append(optionalNumber as Any) // 使用 as 可以显示的转化为 Any
 
 //: [Nested Types](@next)

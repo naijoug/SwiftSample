@@ -444,25 +444,36 @@ class UntitledDocument: Document { // 无标题文档
     }
 }
 
-// The init! Failable Initializer
+// The init! Failable Initializer - init! 可失败构造器
+//  * init? 创建一个可选类型实例的可失败构造器
+//  * init! 创建一个隐私解包可选类型的可失败构造器
+//  * 注:
+//      - init! 构造失败会触发断言
 
 
-//: Required Initializers ()
+//: Required Initializers (必要构造器)
+//  * 每个派生类必须实现此构造器
+//  * required 关键字标记必要构造器
+//  * 子类重写必要构造器，不需要使用 override
+//  * 注:
+//      - 子类符合继承构造器要求，就不需要显示实现必要构造器
+
 class SomeClass {
     required init() {
-        
     }
 }
 class SomeSubclass: SomeClass {
     required init() {
-        
     }
 }
 
-//: Setting a Default Property Value with a Closure or Function ()
+//: Setting a Default Property Value with a Closure or Function (使用闭包或者函数设置默认属性值)
+//  * 类型实例初始化时，闭包或者函数就会被调用，返回值作为属性的默认值
+//  * 注：
+//      - 闭包执行时，实例还未初始化，不能访问其他属性，也不能使用 self
 
 struct Chessboard {
-    let boardColors: [Bool] = {
+    let boardColors: [Bool] = { // 闭包作为属性默认值
         var temporaryBoard = [Bool]()
         var isBlack = false
         for i in 1...8 {
@@ -473,7 +484,7 @@ struct Chessboard {
             isBlack = !isBlack
         }
         return temporaryBoard
-    }()
+    }() // 闭包后面括号，通知 Swift 立即执行闭包
     func squareIsBlackAt(row: Int, column: Int) -> Bool {
         return boardColors[(row * 8) + column]
     }
